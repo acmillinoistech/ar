@@ -124,11 +124,13 @@
 				if (show && className === 'acm') {
 					setTimeout(function() {
 						var email = window.prompt('Wanna join ACM? Share your email for updates!');
-						firebase.database().ref('student-org-fair-2017').push({
-							email: email,
-							timestamp: Date.now(),
-							mobile: isMobile
-						});
+						if (email) {
+							firebase.database().ref('student-org-fair-2017').push({
+								email: email,
+								timestamp: Date.now(),
+								mobile: isMobile
+							});
+						}
 					}, 1000);
 				}
 			}
